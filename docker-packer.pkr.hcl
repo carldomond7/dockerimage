@@ -40,8 +40,7 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
     build {
         sources = [
         "source.docker.docker-image"
-        ]
-    
+        ]   
     post-processors {
         post-processor "docker-tag" {
             repository = "starseizer45/packerprojects"
@@ -53,3 +52,4 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
             login_password = "Qazwsxedc45$"
         }
     }
+}
