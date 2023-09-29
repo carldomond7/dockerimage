@@ -40,10 +40,10 @@ jobs:
         run: find . -maxdepth 1 -name '*.tf' -execdir terraform init -upgrade \;
         
       - name: Terraform Validate
-        run: find . -maxdepth 1 -name '*.tf' -print0 | xargs -t0n1 terraform validate
+        run: find . -maxdepth 1 -name '*.tf' -execdir terraform validate \;
 
       - name: Terraform Apply
-        run: find . -maxdepth 1 -name '*.tf' -print0 | xargs -t0n1 terraform apply
+        run: find . -maxdepth 1 -name '*.tf' -execdir terraform apply \;
         
     
   
