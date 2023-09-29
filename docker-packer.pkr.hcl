@@ -41,15 +41,12 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
         sources = [
         "source.docker.docker-image"
         ]
-    provisioner "ansible" { 
-        extra_arguments = [
-            "-e",
-            "'ansible_python_interpreter=/usr/bin/python3'",
-        ]
-
-}
     provisioner "ansible" {
         playbook_file = "./playbook_web.yml"
+        extra_arguments = [
+             "-e",
+              "'ansible_python_interpreter=/usr/bin/python3'",
+            ]
         }
     post-processor "docker-import" {
       repository = "starseizer45/packerprojects"
