@@ -4,6 +4,9 @@ on:
 jobs:
   event-handler:
     runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -23,6 +26,24 @@ jobs:
         run: find . -maxdepth 1 -name '*.hcl' -print0 | xargs -t0n1 packer validate
 
       - name: Packer Build
-        run: find . -maxdepth 1 -name '*.hcl' -print0 | xargs -t0n1 packer build 
+        run: find . -maxdepth 1 -name '*.hcl' -print0 | xargs -t0n1 packer build
+
+      - name: Terraform install
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.1.7
+
+      - name: Terraform version check
+        run: terraform -v
+
+      - name: Terraform Init
+        run: find . -maxdepth 1 -name '*.tf -print0 | xargs -t0n1 terraform init -upgrade
+
+      - name: Terraform Validate
+        run: find . -maxdepth 1 -name '*.tf' -print0 | xargs -t0n1 terraform validate
+
+      - name: Terraform Apply
+        run: find . -maxdepth 1 -name '*.tf' -print0 | xargs -t0n1 terraform apply
+        
     
   
