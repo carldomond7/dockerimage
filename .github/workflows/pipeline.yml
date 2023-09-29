@@ -43,7 +43,8 @@ jobs:
         run: find . -maxdepth 1 -name '*.tf' -execdir terraform validate \;
 
       - name: Terraform Apply
-        run: find . -maxdepth 1 -name '*.tf' -execdir terraform apply -auto-approve\;
+        run: find . -maxdepth 1 -name '*.tf' -execdir terraform apply -auto-approve \;
+
         
     
   
