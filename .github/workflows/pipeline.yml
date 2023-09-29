@@ -37,7 +37,7 @@ jobs:
         run: terraform -v
 
       - name: Terraform Init
-        run: find . -maxdepth 1 -name '*.tf -print0 | xargs -t0n1 terraform init -upgrade
+        run: find . -maxdepth 1 -name '*.tf' -print0 | xargs -t0n1 terraform init -upgrade
 
       - name: Terraform Validate
         run: find . -maxdepth 1 -name '*.tf' -print0 | xargs -t0n1 terraform validate
