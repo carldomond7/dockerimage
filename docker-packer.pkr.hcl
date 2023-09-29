@@ -46,7 +46,7 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
       tag = ["latest"]
     }
     post-processor "docker-push" {
-        login = true,
+        login = true
         login_username = "starseizer45",
         login_password = "Qazwsxedc45$"
     }
