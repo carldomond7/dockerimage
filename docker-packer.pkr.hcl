@@ -46,14 +46,7 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
         }
     }
        
-    post-processors {
-        post-processor "docker-tag" {
-            repository = "public.ecr.aws/name(to put)"
-            tags = ["latest"]
-        }
-
-    post-processor "docker-push" {
-            ecr_login = false
-            login_server = "public.ecr.aws/name(to put)"
-        }
-    }
+    post-processor "docker-import" {
+  repository = "starseizer45/packerprojects"
+  tag = "0.7"
+}
