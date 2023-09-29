@@ -38,7 +38,7 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 }
 
     build {
-        source = [
+        sources = [
         "source.docker.docker-image"
         ]
     provisioner "ansible" {
