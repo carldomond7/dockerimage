@@ -41,8 +41,8 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
         sources = [
         "source.docker.docker-image"
         ]
-    post-processor "docker-import" {
+    post-processor "docker-tag" {
       repository = "starseizer45/packerprojects"
-      tag = "0.7"
+      tag = ["latest"]
     }
 }
