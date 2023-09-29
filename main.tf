@@ -34,6 +34,6 @@ resource "aws_instance" "dockerpacker_image" {
     instance_type = "t2.micro"
     user_data   = <<-EOF
                     #!/bin/bash
-                    docker run -d starseizer45/packerprojects:latest
+                    docker run -d starseizer45/packerprojects:latest'
                   EOF
 }
