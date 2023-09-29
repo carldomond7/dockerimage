@@ -1,1 +1,28 @@
+on:
+  push: 
+  workflow_dispatch:
+jobs:
+  event-handler:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
+      - name: Packer install
+        uses: hashicorp/setup-packer@main
+        with:
+          version: '1.9.4'
+
+      - name: Packer version check
+        run: packer --version
+
+      - name: Packer init
+        run: find . -maxdepth 1 -name '*.hcl' -print0 | xargs -t0n1 packer init -upgrade
+
+      - name: Packer Validate
+        run: find . -maxdepth 1 -name '*.hcl' -print0 | xargs -t0n1 packer validate
+
+      - name: Packer Build
+        run: find . -maxdepth 1 -name '*.hcl' -print0 | xargs -t0n1 packer build 
+    
+  
