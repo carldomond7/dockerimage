@@ -41,13 +41,15 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
         sources = [
         "source.docker.docker-image"
         ]
-    post-processor "docker-tag" {
-      repository = "starseizer45/packerprojects"
-      tag = ["latest"]
+    
+    post-processors {
+        post-processor "docker-tag" {
+            repository = "starseizer45/packerprojects"
+            tag = ["latest"]
+        }
+        post-processor "docker-push" {
+            login = true
+            login_username = "starseizer45"
+            login_password = "Qazwsxedc45$"
+        }
     }
-    post-processor "docker-push" {
-        login = true
-        login_username = "starseizer45"
-        login_password = "Qazwsxedc45$"
-    }
-}
