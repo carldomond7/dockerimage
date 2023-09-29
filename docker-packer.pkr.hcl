@@ -45,3 +45,15 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
         playbook_file = "./playbook_web.yml"
         }
     }
+       
+    post-processors {
+        post-processor "docker-tag" {
+            repository = "public.ecr.aws/name(to put)"
+            tags = ["latest"]
+        }
+
+    post-processor "docker-push" {
+            ecr_login = false
+            login_server = "public.ecr.aws/name(to put)"
+        }
+    }
