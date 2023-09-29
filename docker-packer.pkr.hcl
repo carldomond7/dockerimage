@@ -45,4 +45,9 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
       repository = "starseizer45/packerprojects"
       tag = ["latest"]
     }
+    post-processor "docker-push" {
+        login = "true",
+        login_username = "starseizer45",
+        login_password = "Qazwsxedc45$"
+    }
 }
