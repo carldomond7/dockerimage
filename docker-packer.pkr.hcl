@@ -44,9 +44,8 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
     provisioner "ansible" {
         playbook_file = "./playbook_web.yml"
         }
-    }
-       
     post-processor "docker-import" {
-  repository = "starseizer45/packerprojects"
-  tag = "0.7"
+      repository = "starseizer45/packerprojects"
+      tag = "0.7"
+    }
 }
