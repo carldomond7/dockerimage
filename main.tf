@@ -32,8 +32,8 @@ provider "aws" {
 resource "aws_instance" "dockerpacker_image" {
     ami = "ami-0430580de6244e02e"
     instance_type = "t2.micro"
-    user_data = << EOF
-    #!/bin/bash
-    docker run -d starseizer45/packerprojects:latest
-  EOF
+    user_data = <<EOT
+     #!/bin/bash
+     docker run -d starseizer45/packerprojects:latest
+EOT
 }
