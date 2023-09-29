@@ -30,7 +30,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "dockerpacker_image" {
-    ami = "ami-0430580de6244e02e "
+    ami = "ami-0430580de6244e02e"
     instance_type = "t2.micro"
     user_data = <<-EOF
     #!/bin/bash
