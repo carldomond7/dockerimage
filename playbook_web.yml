@@ -3,6 +3,13 @@
   user: ubuntu
   become: yes
   tasks:
+    - name: Install Python3 
+      raw: apt -y update && apt -y install python3
+
+    - name: Set Python3 interpreter
+      set_fact:
+        ansible_python_interpreter: /usr/bin/python3
+        
     - name: Install Apache 
       apt: 
         name: apache2
