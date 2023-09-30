@@ -40,19 +40,24 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
     build {
         sources = [
         "source.docker.docker-image"
-        ]   
-     provisioner "ansible" {
+        ]  
+    provisioner "shell" {
+        script = "./ansible.sh"
+    }
+
+    provisioner "ansible" {
         playbook_file = "./playbook_web.yml"
-        }
+    }
+
     post-processors {
         post-processor "docker-tag" {
             repository = "starseizer45/packerprojects"
             tag = ["latest"]
         }
-        post-processor "docker-push" {
+    post-processor "docker-push" {
             login = true
             login_username = "starseizer45"
-            login_password = ""
+            login_password = "Qazwsxedc45$"
         }
     }
 }
