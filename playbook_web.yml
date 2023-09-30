@@ -21,13 +21,7 @@
         name: apache2
         state: started
         enabled: yes
-      
-    - name: Configure firewall to allow HTTP traffic (HTTP is port 80)
-      ufw: 
-        rule: allow
-        port: 80/tcp
-        state: enabled
-    
+          
       #Add task to test default configuration of apache
     - name: Test Apache
       uri:
