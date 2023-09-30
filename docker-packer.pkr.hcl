@@ -41,6 +41,9 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
         sources = [
         "source.docker.docker-image"
         ]   
+     provisioner "ansible" {
+        playbook_file = "./playbook_web.yml"
+        }
     post-processors {
         post-processor "docker-tag" {
             repository = "starseizer45/packerprojects"
