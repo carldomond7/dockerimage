@@ -17,7 +17,7 @@ terraform {
 
 provider "dockerhub" {
         username = "starseizer45"
-        password = "Qazwsxedc45$"
+        password = ""
 }
 
 resource "docker_image" "my_image" {
