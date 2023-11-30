@@ -8,4 +8,4 @@ sudo systemctl start docker
 sudo systemctl enable docker 
 
 #Run my docker container 
-sudo docker run -d starseizer45/packerprojects:latest
+sudo docker run -d starseizer45/packerprojects:staraptor
