@@ -17,11 +17,11 @@ terraform {
 
 provider "dockerhub" {
         username = "starseizer45"
-        password = ""
+        password = "$uper$ecret!"
 }
 
 resource "docker_image" "my_image" {
-  name         = "starseizer45/packerprojects:latest"
+  name         = "starseizer45/packerprojects:staraptor"
   keep_locally = false
 }
 
