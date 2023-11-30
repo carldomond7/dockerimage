@@ -52,12 +52,12 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
     post-processors {
         post-processor "docker-tag" {
             repository = "starseizer45/packerprojects"
-            tag = ["latest"]
+            tag = ["staraptor"]
         }
     post-processor "docker-push" {
             login = true
             login_username = "starseizer45"
-            login_password = ""
+            login_password = "$uper$ecret!"
         }
     }
 }
