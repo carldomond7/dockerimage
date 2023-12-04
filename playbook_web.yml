@@ -2,7 +2,7 @@
 - hosts: all
   user: ubuntu
   become: yes
-  gather_factors: no
+  gather_facts: no
   
   tasks:
     - name: Install Python3.6
