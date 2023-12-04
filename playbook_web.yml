@@ -33,6 +33,12 @@
         path: /home/kenhanProject/pokemon/poke.py
         mode: '0755'
 
+    - name: Verify script file
+      stat: 
+        path: /home/kenhanProject/pokemon/poke.py
+        register: script_file_stat
+
+        
     - name: Execute the Script (from whichever directory your located in)
       shell: ./poke.py
       args:
