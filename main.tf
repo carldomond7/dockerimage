@@ -35,17 +35,3 @@ resource "aws_instance" "dockerpacker_image" {
   user_data = "${file("user_data.sh")}"
 }
 
-terraform apply -auto-approve
-
-provider "docker" {
-  host = "tcp://${aws_instance.dockerpacker_image.public_ip}:2376"
-}
-
-resource "docker_image" "staraptor" {
-  name = "starseizer45/packerprojects:staraptor"
-}
-
-resource "docker_container" "my_container" {
-  image = docker_image.staraptor.image_id
-  name = "pokeball"
-}
