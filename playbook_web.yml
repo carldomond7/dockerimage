@@ -3,12 +3,19 @@
   user: ubuntu
   become: yes
   tasks:
-    - name: Install Python3 
-      raw: apt -y update && apt -y install python3
+    - name: Add repo for Python 3.6
+      apt_repository:
+        repo: ppa:deadsnakes/ppa
 
-    - name: Set Python3 interpreter
+    - name: Install Python3.6
+      apt: 
+        update_cache: yes
+        name: python3.6
+        state: present
+
+    - name: Set Python3.6 interpreter
       set_fact:
-        ansible_python_interpreter: /usr/bin/python3
+        ansible_python_interpreter: /usr/bin/python3.6
 
     - name: Create Directory to host script
       file:
