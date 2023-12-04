@@ -37,6 +37,12 @@
       stat: 
         path: /home/kenhanProject/pokemon/poke.py
 
+    - name: Print current working directory
+      command: pwd
+
+    - name: List files inside pokemon directory
+      command: ls -l /home/kenhanProject/pokemon/
+
         
     - name: Execute the Script (from whichever directory your located in)
       shell: ./poke.py
