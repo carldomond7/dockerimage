@@ -3,15 +3,8 @@
   user: ubuntu
   become: yes
   tasks:
-    - name: Add repo for Python 3.6
-      apt_repository:
-        repo: ppa:deadsnakes/ppa
-
     - name: Install Python3.6
-      apt: 
-        update_cache: yes
-        name: python3.6
-        state: present
+      raw: raw: sudo add-apt-repository -y ppa:deadsnakes/ppa && sudo apt-get update && sudo apt-get install -y python3.6
 
     - name: Set Python3.6 interpreter
       set_fact:
