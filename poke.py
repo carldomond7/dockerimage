@@ -1,6 +1,7 @@
-#!/usr/bin/python3.6 
+#!/usr/bin/python3.6
 import requests
 import datetime
+import os
 
 # Retrieve Pokemon info
 response = requests.get("https://pokeapi.co/api/v2/pokemon/staraptor")
@@ -22,10 +23,8 @@ for move in data['abilities']:
 # Create finalized array
 combined_array = []
 for i in range(len(moveset)):
-    combined_array.append(moveset[i])
-    combined_array.append('\n')
-    combined_array.append(description[i])
-    combined_array.append('\n')
+    combined_array.append(moveset[i] + '\n')
+    combined_array.append(description[i] + '\n')
 
 # Create unique filename
 timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
