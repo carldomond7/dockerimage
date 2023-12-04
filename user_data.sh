@@ -7,5 +7,4 @@ sudo apt-get install -y docker.io
 sudo systemctl start docker
 sudo systemctl enable docker 
 
-#Run my docker container 
-sudo docker run -d starseizer45/packerprojects:staraptor
+
