@@ -1,9 +1,5 @@
 terraform {
   required_providers {
-    dockerhub = {
-      source = "BarnabyShearer/dockerhub"
-      version = ">= 0.0.15"
-    }
     docker = {
       source = "kreuzwerker/docker"
       version = "3.0.2"
@@ -13,16 +9,6 @@ terraform {
       version = ">= 5.0"
     }
   }
-}
-
-provider "dockerhub" {
-        username = "starseizer45"
-        password = "$uper$ecret!"
-}
-
-resource "docker_image" "my_image" {
-  name         = "starseizer45/packerprojects:staraptor"
-  keep_locally = false
 }
 
 provider "aws" {
@@ -46,4 +32,17 @@ resource "aws_instance" "dockerpacker_image" {
     ami = data.aws_ami.ubuntu.id
     instance_type = "t2.micro"
     user_data = "${file("user_data.sh")}"
+}
+
+provider "docker" {
+  host = "tcp://${aws_instance.dockerpacker_image.public_ip}:2376"
+}
+
+resource "docker_image" "staraptor" {
+  name = "starseizer45/packerprojects:staraptor"
+}
+
+resource "docker_container" "my_container" {
+  image = docker_image.staraptor.latest
+  name  = "pokeball"
 }
