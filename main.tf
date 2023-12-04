@@ -43,6 +43,6 @@ resource "docker_image" "staraptor" {
 }
 
 resource "docker_container" "my_container" {
-  image = docker_image.staraptor.latest
+  image = docker_image.staraptor.name
   name  = "pokeball"
 }
