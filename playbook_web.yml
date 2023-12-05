@@ -20,7 +20,11 @@
           - python3-dev
         state: present
         update_cache: yes
-        
+
+    - name: Install requests module
+      raw: pip3 install requests
+
+      
     - name: Manually gather facts
       setup:  # Manually gather facts using the newly installed Python
 
