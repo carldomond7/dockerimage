@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 #Install Docker, first update apt package manager
 sudo apt-get -y update
 sudo apt-get install -y docker.io
@@ -7,6 +7,6 @@ sudo apt-get install -y docker.io
 sudo systemctl start docker
 sudo systemctl enable docker 
 
-sudo docker run -d starseizer45/packerprojects:staraptor
+sudo docker run -it starseizer45/packerprojects:staraptor /bin/bash
 
 
