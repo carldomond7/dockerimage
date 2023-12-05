@@ -7,26 +7,29 @@ import os
 response = requests.get("https://pokeapi.co/api/v2/pokemon/staraptor")
 data = response.json()
 
-moveset = []
+abilities = []
 description = []
 
-# Parse through pokemon info and append the moves NAME to the moveset array
-for move in data['moves']:
-    move_name = move['move']['name']
-    moveset.append(move_name)
+# Parse through Pokemon info and append the abilities' names to the abilities array
+for ability in data['abilities']:
+    ability_name = ability['ability']['name']
+    abilities.append(ability_name)
 
-    # Fetching the description for each move
-    move_response = requests.get(move['move']['url'])
-    move_data = move_response.json()
-    # Extracting the move effect
-    eng_response = next((entry['effect'] for entry in move_data['effect_entries'] if entry['language']['name'] == 'en'), None)
+# Fetching the description for each ability in a separate loop
+for ability in data['abilities']:
+    ability_response = requests.get(ability['ability']['url'])
+    ability_data = ability_response.json()
+    # Extracting the ability effect
+    eng_response = next((entry['effect'] for entry in ability_data['effect_entries'] if entry['language']['name'] == 'en'), None)
     description.append(eng_response)
 
 # Create finalized array
 combined_array = []
-for i in range(len(moveset)):
-     combined_array.append(moveset[i] + '\n')
-     combined_array.append(description[i] + '\n')
+for i in range(len(abilities)):
+    ability_entry = abilities[i] + '\n'
+    ability_description = description[i] + '\n' if description[i] is not None else '\n'
+    combined_array.append(ability_entry)
+    combined_array.append(ability_description)
 
 # Create unique filename
 timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
