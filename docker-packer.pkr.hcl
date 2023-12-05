@@ -33,7 +33,7 @@ variable "region" {
 locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 
     source "docker" "docker-image" {
-    image = "ubuntu:xenial"
+    image = "ubuntu:jammy"
     commit = true
 }
 
@@ -47,7 +47,6 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 
     provisioner "ansible" {
         playbook_file = "./playbook_web.yml"
-ansible_env_vars = ["ANSIBLE_VERBOSITY=2"]
     }
 
     post-processors {
