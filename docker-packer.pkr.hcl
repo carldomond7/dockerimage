@@ -37,7 +37,7 @@ variable "timezone" {
 #Basically going to use this to give templates a unique name
 locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 
- source "docker" "my_image" {
+ source "docker" "docker-image" {
   image = "ubuntu:jammy"
   commit = true
   environment_vars = [
