@@ -5,13 +5,13 @@
   gather_facts: no
   
   tasks:
-    - name: Install Python3.6
-      raw: sudo add-apt-repository -y ppa:jblgf0/python && sudo apt-get update && sudo apt-get install -y python3.6 
+    - name: Install Python3.8
+      raw: sudo apt install Python3.8 -y
       changed_when: false
 
-    - name: Set Python3.6 interpreter
+    - name: Set Python3.8 interpreter
       set_fact:
-        ansible_python_interpreter: /usr/bin/python3.6
+        ansible_python_interpreter: /usr/bin/python3.8
         
     - name: Install pip
       apt:
