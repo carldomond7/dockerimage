@@ -47,6 +47,7 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 
     provisioner "ansible" {
         playbook_file = "./playbook_web.yml"
+ansible_env_vars = ["ANSIBLE_VERBOSITY=2"]
     }
 
     post-processors {
