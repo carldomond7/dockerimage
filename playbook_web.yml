@@ -7,7 +7,6 @@
   tasks:
     - name: Install Python3.6
       raw: sudo add-apt-repository -y ppa:jblgf0/python && sudo apt-get update && sudo apt-get install -y python3.6 
-      changed_when: false
 
     - name: Set Python3.6 interpreter
       set_fact:
@@ -18,7 +17,6 @@
       
     - name: Manually gather facts
       setup:  # Manually gather facts using the newly installed Python
-
 
     - name: Create Directory to host script
       file:
