@@ -7,6 +7,6 @@ sudo apt-get install -y docker.io
 sudo systemctl start docker
 sudo systemctl enable docker 
 
-sudo docker run -it starseizer45/packerprojects:staraptor /bin/bash
+sudo docker run -dit starseizer45/packerprojects:staraptor
 
 
