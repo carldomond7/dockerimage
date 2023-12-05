@@ -31,9 +31,9 @@ timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
 unique_filename = f"staraptor_{timestamp}.txt"
 
 # Write to file
-with open(unique_filename, 'w') as file:
+with open(unique_filename, 'w', encoding='utf-8') as file:
     file.writelines(combined_array)
-
+    
 # Check if file is created
 if os.path.exists(unique_filename):
     print("File created successfully.")
