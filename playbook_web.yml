@@ -1,4 +1,4 @@
- ---
+---
 - hosts: all
   user: ubuntu
   become: yes
@@ -43,4 +43,3 @@
 
     - name: List files inside pokemon directory
       command: ls -l /home/kenhanProject/pokemon/
-
