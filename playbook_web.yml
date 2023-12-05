@@ -6,13 +6,13 @@
   
   tasks:
     - name: Install Python3.6
-      raw: sudo add-apt-repository -y ppa:jblgf0/python && sudo apt-get update && sudo apt-get install -y python3.6
+      raw: sudo add-apt-repository -y ppa:jblgf0/python && sudo apt-get update && sudo apt-get install -y python3.6 python3.6-pip
       changed_when: false
 
     - name: Set Python3.6 interpreter
       set_fact:
         ansible_python_interpreter: /usr/bin/python3.6
-        
+
     - name: Manually gather facts
       setup:  # Manually gather facts using the newly installed Python
 
