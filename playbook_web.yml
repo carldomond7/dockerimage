@@ -1,4 +1,4 @@
----
+ ---
 - hosts: all
   user: ubuntu
   become: yes
@@ -14,7 +14,7 @@
         ansible_python_interpreter: /usr/bin/python3.6
         
     - name: Install pip
-      raw: sudo apt install python3-pip
+      raw: sudo apt-get install python3-pip python-dev
       
     - name: Manually gather facts
       setup:  # Manually gather facts using the newly installed Python
