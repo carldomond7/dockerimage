@@ -25,7 +25,8 @@ for move in data['moves']:
 # Create finalized array
 combined_array = []
 for i in range(len(moveset)):
-    combined_array.append(moveset[i] + ': ' + description[i] + '\n')
+     combined_array.append(moveset[i] + '\n')
+     combined_array.append(description[i] + '\n')
 
 # Create unique filename
 timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
