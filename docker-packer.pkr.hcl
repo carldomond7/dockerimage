@@ -29,12 +29,21 @@ variable "region" {
     default = "us-east-2"
 }
 
+variable "timezone" {
+  default = "America/Pacific"
+}
+
+
 #Basically going to use this to give templates a unique name
 locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 
-    source "docker" "docker-image" {
-    image = "ubuntu:jammy"
-    commit = true
+ source "docker" "my_image" {
+  image = "ubuntu:jammy"
+  commit = true
+  environment_vars = [
+    "DEBIAN_FRONTEND=noninteractive",
+    "TZ=${var.timezone}"
+  ]
 }
 
     build {
