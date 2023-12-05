@@ -26,7 +26,7 @@
 
       
     - name: Manually gather facts
-      setup:  # Manually gather facts using the newly installed Python
+      setup:  
 
 
     - name: Create Directory to host script
