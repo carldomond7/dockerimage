@@ -57,8 +57,6 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
         }
     post-processor "docker-push" {
             login = true
-            login_username = "starseizer45"
-            login_password = "$uper$ecret!"
-        }
+
     }
 }
